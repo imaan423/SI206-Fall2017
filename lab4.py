@@ -136,6 +136,7 @@ if __name__ == "__main__":
 ### Write unit tests below this line for the cards code above.
 
 class CardTests(unittest.TestCase):
+    
 ## Test that if you create a card with rank 12, its rank will be "Queen"
     def test_cardrank(self):
         c = Card(rank=12)
@@ -189,18 +190,31 @@ class CardTests(unittest.TestCase):
         self.assertEqual(type(d.pop_card()),type(c))
 
 
+## Test that the return value of the play_war_game function is a tuple with three elements, the first of which is a string. (This will probably require multiple test methods!)
+
+    def test_warInstance(self):
+        p = play_war_game()
+        self.assertEqual(len(p),3)
+        self.assertEqual(type(p[0]), str)
+
+## Write at least 2 additional tests (not repeats of the above described tests). Make sure to include a descriptive message in these two so we can easily see what you are testing!
+
+#Test to see that making card of type 2 returns hearts
+
+    def test_myTestInstance1(self):
+        test12 = Card(2, 2)
+        self.assertEqual(test12.suit, "Hearts")
 
 
-
-
-
-
-
-
-
-
-
-
+#Test to see that a newly initialized deck has four of each suit
+    def test_myTestInstance2(self):
+        test11 = Deck()
+        suit_test = [0]*13
+        for i in range(52):
+            current = test11.pop_card()
+            suit_test[current.rank_num-1]+=1
+        for i in range(13):
+            self.assertEqual(suit_test[i], 4)
 
 
 
