@@ -218,8 +218,6 @@ class CardTests(unittest.TestCase):
 
 
 
-
-
 #############
 ## The following is a line to run all of the tests you include:
 unittest.main(verbosity=2) 
